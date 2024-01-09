@@ -1,0 +1,437 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'CC';
+    src: url('./长城行楷体.TTF') format('TTF');
+    /* 添加其他字体格式，如ttf、eot等，以适应不同浏览器 */
+}
+
+@font-face {
+    font-family: 'WXZ';
+    src: url('./王羲之书法字体.ttf') format('TTF');
+    /* 添加其他字体格式，如ttf、eot等，以适应不同浏览器 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* CSS 样式中可以设置默认状态为隐藏 */
+.content-container {
+    display: none;
+}
+
+/* 第一行 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* 水平方向上分散排列 */
+    align-items: center;
+    /* 垂直方向上居中 */
+    background-color: #93ddba;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    height: 20px;
+    /* 设置第一行固定高度 */
+}
+
+.welcome-container {
+    display: inline-block;
+    margin-left: 10%;
+    /* 调整文字的左边距，可以根据需要调整值 */
+}
+
+.welcome-text {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    /* 使用 Arial 字体，如果不可用，则使用 sans-serif 字体 */
+}
+
+
+/* 添加“退出登陆”按钮样式 */
+.logout-button {
+    padding: 6px 10px;
+    background-color: rgb(46, 198, 225);
+    color: #ffffffe3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    background-color: #c9302c;
+}
+
+/* 第二行 */
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+    margin-left: 15%;
+    /* 距离左边15% */
+}
+
+.profile-section img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-top: 10px;
+    /* 调整上边距 */
+}
+
+.main-title {
+    /* 调字体 */
+    text-align: center;
+    font-size: 38px;
+    /* 调整字体大小 */
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    /* 调整上边距 */
+    font-family: 'WXZ', sans-serif;
+    /* 使用自定义字体，如果不可用，则使用 sans-serif 字体 */
+    color: #85eebd;
+    /* 设置文字颜色 */
+    cursor: pointer;
+    /* 将鼠标指针设置为手指形态 */
+}
+
+
+/* 第三行（导航按钮）*/
+.nav-container {
+    display: table;
+    width: 100%;
+    background-color: #f0f0f0;
+    /* 浅灰色底色 */
+    padding: 0;
+    /* 可调整内边距 */
+    table-layout: fixed;
+    /* 设置表格布局为等宽 */
+}
+
+.nav-buttons {
+    display: table-row;
+}
+
+.nav-buttons a {
+    display: table-cell;
+    /* 用表格布局，使每个单元格的宽度都将相等 */
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    /* 设置字体粗细 */
+    font-size: 20px;
+    padding: 10px;
+    /* 添加内边距 */
+    transition: background-color 0.3s ease; /* 添加悬停过渡效果 */
+    cursor: pointer; /* 将鼠标指针设置为手指形态 */
+}
+
+.nav-buttons a:hover,
+.nav-buttons a.active {
+    background-color: #85eebd;
+    /* 选中时的浅绿色底色 */
+    color: #fff;
+    /* 选中时修改文字颜色 */
+}
+
+/* 左右两块留空 */
+.nav-buttons::before,
+.nav-buttons::after {
+    content: "";
+    display: table-cell;
+    width: 14.2857%;
+    /* 100% / 7 */
+    background-color: transparent;
+    /* 设置留空部分的背景色为透明 */
+}
+
+/* 第四行（轮播图）*/
+/* 调整轮播容器的样式 */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 470px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%; /* 设置为图片下面的80% */
+    object-fit: contain;
+    object-position: top;
+}
+
+/* 设置轮播项文本的样式 */
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+/* 1.首页 */
+/* 添加部门简介的样式 */
+.department-intro {
+    text-align: center;
+    margin-bottom: 20px; /* 设置部门简介与图片展示之间的间距 */
+}
+
+.department-intro h2 {
+    color: #333; /* 部门简介标题颜色 */
+}
+
+.department-intro p {
+    color: #666; /* 部门简介文本颜色 */
+}
+
+/* 图片展示样式 */
+.photo-wall {
+    text-align: center;
+    background-color: #f5f5dc; /* 添加淡黄色背景 */
+}
+
+/* 设置表格的宽度为100%，使其占满父容器 */
+table {
+    width: 100%;
+    border-collapse: collapse; /* 合并表格边框 */
+}
+
+/* 设置单元格宽度和高度 */
+table td {
+    width: 25%;
+    height: 20%;
+}
+
+/* 设置图片宽度和高度，确保图片在单元格中居中显示 */
+.photo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 隐藏超出容器的部分 */
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 等比例缩放并裁剪，确保填充整个容器 */
+    object-position: top; /* 使图片顶部对齐 */
+}
+
+.end-text {
+    text-align: center;
+    margin-top: 20px; /* 设置文字与图片展示之间的间距 */
+    font-size: 18px; /* 设置文字的字体大小 */
+    color: #666; /* 设置文字颜色 */
+}
+
+
+/* 2.活动剪影 */
+/* 整体内容布局 */
+.activity-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* 左边存放照片的部分 */
+.activity-photo {
+    width: 20%;
+    height: 16%; /* 设置图片的最大高度 */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.activity-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+/* 右边存放文字和链接的部分 */
+.activity-description {
+    width: 25%; /* 文字部分占据剩下的空间 */
+    padding: 10px;
+}
+
+.activity-description a {
+    display: block;
+    margin-top: 10px;
+    padding: 9% 15%; /* 调整按钮的padding属性，使框变大 */
+    background-color: #93ddba;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.activity-description a:hover {
+    background-color: transparent;
+    color: #5faa95;
+}
+
+
+/* 3.部门职能 */
+/* 部门职能页面新增样式 */
+#departments-content {
+    display: none;
+    text-align: center;
+    margin-top: 1px; /* 调整与轮播图的间距 */
+}
+
+.department-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.department-info img {
+    width: 25%; /* 放大图片宽度 */
+    margin-right: 20px;
+}
+
+.department-info p {
+    font-size: 30px; /* 调大文字字体 */
+    font-family: 'CC', sans-serif; /* 使用自定义字体 */
+    background-color: #85eebd; /* 淡蓝色背景 */
+    padding: 15px; /* 添加内边距 */
+    border-radius: 50%; /* 圆形背景 */
+    color: #fff; /* 文字颜色为白色 */
+}
+
+/* 添加浅灰色背景 */
+.department-info {
+    background-color: #f0f0f0; /* 浅灰色背景 */
+}
+
+
+
+
+
+
+
+/* 4.悄悄话 */
+/* 悄悄话容器样式 */
+#whisper-content {
+    position: relative;
+    text-align: center;
+    margin-top: 1%; /* 调整与轮播图的间距 */
+}
+
+.whisper-container {
+    display: flex;
+}
+
+.left-container {
+    flex: 0.4;
+}
+
+.left-container img {
+    width: 100%;
+    border-radius: 50%; /* 圆形状，可以根据需要调整 */
+}
+
+.right-container {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-container p {
+    font-size: 19px;
+    color: rgb(144, 81, 233);
+}
+
+#whisper-input {/* 调整输入框样式*/
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* 垂直方向可调整大小 */
+}
+
+#send-button {
+    padding: 10px 15px;
+    background-color: #85eebd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#send-button:hover {
+    background-color: #5faa95;
+}
+
+
+/* 5.联系与反馈 */
+/* 新增样式用于联系与反馈容器 */
+#contact-feedback {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contact-feedback-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-feedback-container p {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 15px;
+    background-color:#85eebd;
+}
+
+.contact-feedback-container img {
+    width: 20%; /* 调整图片宽度，可以根据需要调整 */
+    height: 20%; /* 调整图片高度，可以根据需要调整 */
+    border-radius: 10px;
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广财蜜猪小分队</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function reloadPage() {        // 单击第二行文字部分，实现页面刷新
+            window.scrollTo(0, 0); // 滚动到页面顶部
+            location.reload(); // 刷新页面
+        }
+        window.onload = function() {
+            if (window.location.hash.slice(1) === 'home-content') {
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+    <!-- 第一行 -->
+    <div class="header">
+        <div class="welcome-container">
+            <span class="welcome-text">欢迎来到广财蜜猪小分队非官方网站！</span>
+        </div>
+
+        <a href="{{ url_for('logout') }}" class="logout-button">退出登录</a>
+    </div>
+
+    <!-- 第二行 -->
+    <div class="profile-section">
+        <img src="{{ url_for('static', filename='图片/蜜猪头像1.jpg') }}" alt="头像">
+        <div class="main-title" onclick="reloadPage()">广财蜜猪小分队</div>
+    </div>
+
+    <!-- 第三行（导航按钮）-->
+    <div class="nav-container">
+        <div class="nav-buttons">
+            <a href="#" class="active" data-page="home-content">首页</a>
+            <a href="#" data-page="activities" data-content-id="activities-content">活动剪影</a>
+            <a href="#" data-page="departments">部门职能</a>
+            <a href="#" data-page="whisper">悄悄话</a>
+            <a href="#" data-page="contact">联系与反馈</a>
+        </div>
+    </div>
+
+    <!-- 第四行（轮播图）-->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="..\static\图片\P1.jpg" alt="Slide 1">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="..\static\图片\P2.jpg" alt="Slide 2">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="..\static\图片\P3.jpg" alt="Slide 3">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="..\static\图片\P4.jpg" alt="Slide 4">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="..\static\图片\P5.jpg" alt="Slide 5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-text">
+        <p>It likes my second home .</p>
+    </div>
+
+    <!-- 1.首页部分 -->
+    <div class="content-container" id="home-content">
+        <!-- 部门简介 -->
+        <div class="department-intro">
+            <h2>欢迎来到广财蜜猪小分队</h2>
+            <p>校青协秘书部全称：<br>广东财经大学青年志愿者协会佛山校区执行委员会秘书部</p>
+            <p>组织定位：</p>
+            <p>对内跟进校青协各部队，是校青协内部运转的中心枢纽<br>对外接触老师&其他部门，负责场地素拓申请及物资租借</p>
+            <p>部门工作：</p>
+            <p>NO.1例行值班 + 审核物资租借 + 素拓活动申请<br>NO.2一年一度的校青协成立大会策划！<br>NO.3参加其他部队组织的活动，轻松拿志愿素拓and时长！</p>
+            <h2>来看看我们的照片！</h2>
+        </div>
+        <!-- 图片展示 -->
+        <div id="photo-wall" class="photo-wall">
+            <!-- 使用表格展示照片，每个单元格占25%宽度和20%高度 -->
+            <table>
+                <tr>
+                    <td>
+                        <div class="photo"><img src="../static/first/1.jpg" alt="1"></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/2.jpg" alt="2"></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/3.jpg" alt="3"></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/4.jpg" alt="4"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="photo"><img src="../static/first/5.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/6.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/7.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/8.jpg" alt=""></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="photo"><img src="../static/first/9.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/10.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/11.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/12.jpg" alt=""></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="photo"><img src="../static/first/13.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/14.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/15.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/16.jpg" alt=""></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="photo"><img src="../static/first/17.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/18.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/19.jpg" alt=""></div>
+                    </td>
+                    <td>
+                        <div class="photo"><img src="../static/first/20.jpg" alt=""></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="end-text">
+            <p>未完待续</p>
+            <p>未来可期</p>
+        </div>
+    </div>
+
+    <!-- 2.活动剪影页面 -->
+    <div class="content-container" id="activities-content">
+        <div id="activity-details" class="activity-details-container">
+            <!-- 使用循环插入6组图片、文字和链接 -->
+            <?php for ($i = 1; $i <= 6; $i++) { ?>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <!-- 左边存放照片的部分 -->
+                        <div class="activity-photo">
+                            <img src="..\static\图片\链接1.jpg" alt="1">
+                        </div>
+                        <!-- 右边存放文字和链接的部分 -->
+                        <div class="activity-description">
+                            <!-- 添加跳转链接 -->
+                            <div class="centered-text">
+                                <a href="https://mp.weixin.qq.com/s/9OM9o6BcnyvXPsv8qLy4dw" target="_blank">拖更系列 | 五一蜜猪们都在干嘛？</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <!-- 左边存放照片的部分 -->
+                        <div class="activity-photo">
+                            <img src="..\static\图片\链接2.jpg" alt="2">
+                        </div>
+                        <!-- 右边存放文字和链接的部分 -->
+                        <div class="activity-description">
+                            <!-- 添加跳转链接 -->
+                            <div class="centered-text">
+                                <a href="https://mp.weixin.qq.com/s/tSJ9NoCnAs01_-7ZUbsgAw" target="_blank">校青协秘书部|如果你还没有睡，就进来看看吧</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <!-- 左边存放照片的部分 -->
+                        <div class="activity-photo">
+                            <img src="..\static\图片\链接3.jpg" alt="3">
+                        </div>
+                        <!-- 右边存放文字和链接的部分 -->
+                        <div class="activity-description">
+                            <!-- 添加跳转链接 -->
+                            <div class="centered-text">
+                                <a href="https://mp.weixin.qq.com/s/0aVp_9LPIF5xHLaFlJ_93Q" target="_blank">总得去北江蹲一次日出叭</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <!-- 左边存放照片的部分 -->
+                        <div class="activity-photo">
+                            <img src="..\static\图片\链接4.jpg" alt="4">
+                        </div>
+                        <!-- 右边存放文字和链接的部分 -->
+                        <div class="activity-description">
+                            <!-- 添加跳转链接 -->
+                            <div class="centered-text">
+                                <a href="https://mp.weixin.qq.com/s/bZyHHwpuZ6M9L23k5_Xg1Q" target="_blank">大大猪&大猪&小猪</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <!-- 左边存放照片的部分 -->
+                        <div class="activity-photo">
+                            <img src="..\static\图片\链接5.jpg" alt="5">
+                        </div>
+                        <!-- 右边存放文字和链接的部分 -->
+                        <div class="activity-description">
+                            <!-- 添加跳转链接 -->
+                            <div class="centered-text">
+                                <a href="https://mp.weixin.qq.com/s/EBpEjr-G129_2GVKglImOg" target="_blank">关于蜜猪的男生节</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <!-- 左边存放照片的部分 -->
+                        <div class="activity-photo">
+                            <img src="..\static\图片\蜜猪头像1.jpg" alt="6">
+                        </div>
+                        <!-- 右边存放文字和链接的部分 -->
+                        <div class="activity-description">
+                            <!-- 添加跳转链接 -->
+                            <div class="centered-text">
+                                <a href="https://mp.weixin.qq.com/s/IiMVgiRmNWhj2a7fJ67hpg" target="_blank">蜜猪头像它终于来啦</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
+    <!-- 3.部门职能页面 -->
+    <div class="content-container" id="departments-content">
+        <div class="department-info">
+            <img src="..\static\图片\P14.jpg" alt="Department Image">
+            <p>吃吃喝喝就好<br>干饭最重要！</p>
+        </div>
+    </div>
+
+    <!-- 4.悄悄话页面 -->
+    <div class="content-container" id="whisper-content">
+        <div class="whisper-container">
+            <div class="left-container">
+                <img src="..\static\图片\P10.jpg" alt="Pig Image">
+            </div>
+            <div class="right-container">
+                <p>来说些悄悄话吧~</p>
+                <textarea id="whisper-input" placeholder="在这里输入内容"></textarea>
+                <button id="send-button">发送</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5.联系与反馈页面 -->
+    <div class="content-container" id="contact-content">
+        <div id="contact-feedback" class="contact-feedback-container">
+            <p>请关注公众号“蜜猪小分队”联系我们</p>
+            <img src="..\static\图片\P12.jpg" alt="公众号二维码">
+        </div>
+    </div>
+
+
+</body>
+
+</html>
