@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 广财蜜猪小分队</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body::before {
+            content: '';
+            position: fixed;
+            top: 33%;
+            left: 55%;
+            width: 33%;
+            height: 40%;
+            background-color: rgba(205, 205, 205, 0.3); /* 淡灰色，透明度为0.7，可以根据需求调整透明度 */
+            border-radius: 5%; /* 不使用圆角，使其成为长方形 */
+            z-index: -1;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('./static/图片/猪头.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.4);
+            padding-left: 40%;
+            /* 将所有内容往右边移动 40% */
+        }
+
+        /* 调整登录框样式 */
+        .login-form {
+            text-align: center;
+        }
+
+        /* 调整错误消息样式 */
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* 调整输入框样式 */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px;
+            width: 400px;
+            /* 设置容器宽度 */
+        }
+
+        .input-container label {
+            margin-right: 10px;
+        }
+
+        .input-container input {
+            padding: 10px;
+            width: 250px;
+            /* 设置输入框宽度 */
+            border: 1px solid #ccc;
+            /* 添加边框 */
+            border-radius: 5px;
+            /* 圆角边框 */
+        }
+
+        /* 调整验证码样式 */
+        #captcha-container {
+            display: flex;
+            align-items: center;
+            margin: 1px;
+            width: 400px;
+            /* 设置容器宽度 */
+        }
+
+        #captcha-container label {
+            margin-right: 10px;
+        }
+
+        #captcha {
+            width: 90px;
+            /* 调整验证码输入框宽度 */
+            font-size: 18px;
+            /* 放大字体 */
+            border: 1px solid #ccc;
+            /* 添加边框 */
+            border-radius: 5px;
+            /* 圆角边框 */
+            padding: 8px;
+        }
+
+
+        img {
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            /* 添加边框 */
+            border-radius: 5px;
+            /* 圆角边框 */
+            padding: 4px;
+            /* 调整内边距 */
+        }
+
+        /* 调整按钮样式 */
+        button {
+            padding: 10px;
+            width: 150px;
+            /* 设置按钮宽度 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 用户未验证，显示登录表单 -->
+    <div class="login-form">
+        <h2>欢迎访问蜜猪小窝</h2>
+
+        <form action="/login" method="post">
+
+            <div class="input-container">
+                <label for="username">用户名：</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-container">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- 添加验证码输入 -->
+            <div id="captcha-container" class="input-container">
+                <label for="captcha">验证码：</label>
+                <input type="text" id="captcha" name="captcha" required>
+                <img src="{{ url_for('captcha_image') }}" alt="验证码">
+            </div>
+
+            <button type="submit">登录</button>
+        </form>
+
+        {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
